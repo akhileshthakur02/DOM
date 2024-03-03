@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+            // this code provide less feature.
+    document.getElementById('owl').onclick = function(){
+       // alert('Hello guys');
+    }
+
+            // there is another way
+    document.querySelector('#owl').addEventListener('click' , function(event){
+        // console.log(event);
+    })
+
+            /* event propagation : (1) Event bubbling and (2) Event capturing.
+             in event bubbling we goes from bottom to top and in event capturing we goes from top to bottom.  */
+
+             // event bubbling : if we give false to the addEventListner.
+            
+    
+    /* document.querySelector('#images').addEventListener('click' , function(event){
+        console.log("Clicked inside the ul");
+    } , false)
+    document.querySelector('#owl').addEventListener('click', function(event){
+        console.log("owl clicked");
+    },false)  */
+
+             // event capturing : if we give true to the addEventListner.
+    /*      
+    document.querySelector('#images').addEventListener('click' , function(event){
+            console.log("Hello Akhilesh Thakur");
+    },true)
+
+    document.querySelector('#owl').addEventListener('click' , function(event){
+            console.log("Hii Thakur Akhilesh");
+    },true)   */
+
+
+            // but what if we not bubbling the event then there is a method
+     /*document.querySelector('#images').addEventListener('click' , function(event){
+           console.log("Clicked inside the ul");
+    } , false)
+    document.querySelector('#owl').addEventListener('click', function(event){
+          console.log("owl clicked");
+          event.stopPropagation();
+    },false)
+
+    document.querySelector('#google').addEventListener('click' , function(event){
+            console.log('google clicked');
+            event.preventDefault();
+            event.stopPropagation();
+    },false)  */
+
+                // let's suppose we remove images then how it possible
+    document.querySelector('#images').addEventListener('click' , function(event){
+            if(event.target.tagName === 'IMG'){
+                let element = event.target.parentNode;
+                element.remove();
+            }
+    },false)
+
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+   
+</script>
+</html>
