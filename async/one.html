@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async JavaScript</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="stop" style="padding:10px; font-size:30px; background-color: aquamarine; border-radius: 20px; font-weight:700">Stop</button>
+</body>
+    <script>
+                // it will print only once when time hit 2 sec
+        setTimeout(function(){
+            //console.log("Akhilesh Thakur");
+        },2000)
+                // it will continuously print when time hit 2 sec
+        setInterval(function(){
+           // console.log("Hello Akhilesh")
+        },2000)
+
+                    // we have also clearTimeOut
+        const changeHeading = function(){
+            document.querySelector('h1').innerHTML = "On YouTube this is best Js Series";
+        }
+        
+        const clearTime = setTimeout(changeHeading,2000);
+
+                    // what if we click on stop and then it stop to display On YouTube this is best Js Series.  
+        document.getElementById('stop').addEventListener('click',function(){
+            clearTimeout(clearTime);
+            console.log("stopped")
+        })
+    </script>
+</html>
