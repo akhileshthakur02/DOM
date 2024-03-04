@@ -5,7 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+<body style="background-color: #414141; color:white;">
+    <h1></h1>
+    <button id="start" style="background-color: aquamarine; padding:10px; border-radius:5px;font-size:25px">Start</button>
+    <button id="stop" style="background-color: aquamarine; padding:10px; border-radius:5px; font-size:25px;">Stop</button>
 </body>
+    <script>
+        let clear;
+         document.querySelector('#start').addEventListener('click',function(){
+            clear = setInterval(function(){
+                document.querySelector('h1').innerHTML = "Hello Akhilesh How are you"
+                console.log("hello")
+            },2000)
+        })
+
+        document.querySelector('#stop').addEventListener('click' , function(){
+            clearInterval(clear);
+        })
+    </script>
 </html>
