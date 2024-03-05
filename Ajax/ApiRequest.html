@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax fetch data </title>
+</head>
+<body>
+    
+</body>
+    <script>
+                // Basically , here we are creating xmlhttpRequest object
+        const xhr = new XMLHttpRequest();
+                // this method send request to the server but it is not complete there is one more method.
+        xhr.open('GET' , 'https://api.github.com/users/akhileshthakur02');
+        xhr.send();  // finally request send to the server
+                // it means that it change the state again and again.
+        xhr.onreadystatechange = function(){
+            const data = JSON.parse(this.responseText);
+            if(xhr.readyState === 4){
+                document.body.innerHTML = data.login
+            }
+        }
+    </script>
+</html>
